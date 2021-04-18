@@ -1,0 +1,9 @@
+{
+	"name": "DF-AzurePractice254",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "85296fde-ba15-4089-98c8-ae89045afdfa",
+		"tenantId": "a3a4c908-e288-4006-8a56-d0559bcdf591"
+	}
+}
