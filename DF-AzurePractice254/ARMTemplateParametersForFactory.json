@@ -4,6 +4,9 @@
 	"parameters": {
 		"factoryName": {
 			"value": "DF-AzurePractice254"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
 		}
 	}
 }
