@@ -1,0 +1,28 @@
+{
+	"name": "DF_SDCType1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_SCDType1",
+						"type": "DatasetReference"
+					},
+					"name": "SourceEmployee"
+				}
+			],
+			"sinks": [
+				{
+					"name": "SCDType1sink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "AlterRowSCDType1"
+				}
+			],
+			"script": "source(output(\n\t\tempid as string,\n\t\tname as string,\n\t\tcountry as string,\n\t\t{department } as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SourceEmployee\nSourceEmployee alterRow(upsertIf(1 == 1)) ~> AlterRowSCDType1\nAlterRowSCDType1 sink(skipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SCDType1sink"
+		}
+	}
+}
